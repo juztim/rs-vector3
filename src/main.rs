@@ -28,6 +28,10 @@ impl Vector3 {
     fn distance_to(&self, other: &Vector3) -> f64 {
         return ((self.x - other.x).powf(2.0) + (self.y - other.y).powf(2.0) + (self.z - other.z).powf(2.0)).sqrt();
     }
+    ///Returns if the specified Vector3 is in specified range of the other Vector3
+    fn in_range(&self, other: &Vector3, range: f64) -> bool {
+        return self.distance_to(other) < range;
+    }
 }
 
 
@@ -35,5 +39,4 @@ fn main() {
     let my_vector = Vector3::new(309.22, 232.34, 132.32213);
     let my_other_vector = Vector3::new(23.2313, 232.54, 132.2);
 
-    println!("Die Differenz beträgt {}", my_vector.distance_to(&my_other_vector));
 }
